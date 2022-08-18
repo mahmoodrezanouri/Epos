@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>PrintService.WebUI</title>
+  <base href="/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <script src="Scripts/jquery-1.10.2.min.js"></script>
+  <!--<script src="Scripts/jquery.signalR.min.js"></script>-->
+  <!--<script src="signalr/hubs"></script>-->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.7/signalr.min.js"></script>
+
+
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+
+      var connection = new signalR.HubConnectionBuilder()
+        .withUrl('https://localhost:44389/hub/notificationhub')
+        .build();
+
+      connection.on('broadcastMessage', function (message) {
+        $('#printResult').html(message);
+      });
+
+      connection.start()
+        .then(function () {
+          console.log('connection started');
+       
+        })
+        .catch(error => {
+          console.error(error.message);
+        });
+    });
+  </script>
+
+</head>
+  <body>
+    <app-root>Loading...</app-root>
+
+
+
+  </body>
+</html>

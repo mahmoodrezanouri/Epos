@@ -1,0 +1,24 @@
+[
+  {
+    "TestName": "Adapter_Print_Test",
+    "ModelName": "TM-L90-i",
+    "BrandName": "EPSON",
+    "IpAddress": "192.168.7.12",
+    "PrinterName": "ep-test",
+    "Port": 80,
+    "TimeOut": 120,
+    "TextToPrint": "Print Hello EPSON !!!",
+    "Expected": "Printer : ep-testIP : 192.168.7.12Print Data : <Envelope xmlns='http://schemas.xmlsoap.org/soap/envelope/'>  <Body>    <epos-print xmlns='http://www.epson-pos.com/schemas/2011/03/epos-print'>      <text Width='100px' Height='80px'>Print Hello EPSON !!!</text>    </epos-print>  </Body></Envelope>"
+  },
+  {
+    "TestName": "Adapter_Print_Test",
+    "ModelName": "CP-100",
+    "BrandName": "Cannon",
+    "IpAddress": "192.168.158.1",
+    "PrinterName": "can-test",
+    "Port": 9090,
+    "TimeOut": 180,
+    "TextToPrint": "Print Hello Cannon !!!",
+    "Expected": "Printer : can-testIP : 192.168.158.1Print Data : Print Hello Cannon !!!"
+  }
+]
